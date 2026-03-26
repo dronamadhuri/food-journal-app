@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1d2671, #c33764);
+  color: white;
+}
+
+/* Auth */
+.auth-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card {
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  width: 300px;
+  text-align: center;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout {
+  background: #ff4d6d;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.12);
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+}
+
+/* Form */
+form input, form select, form button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+}
+
+form input, form select {
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+form button {
+  background: linear-gradient(135deg, #00c896, #00a67e);
+  color: white;
+  cursor: pointer;
+}
+
+/* Meals */
+.meals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.meal-card {
+  background: rgba(255,255,255,0.18);
+  padding: 18px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.meal-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.delete {
+  display: inline-block;
+  margin-top: 10px;
+  background: #ff4d6d;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+}

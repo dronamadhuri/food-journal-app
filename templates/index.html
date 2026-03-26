@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Journal</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>🍽 Food Journal</h1>
+    <a href="/logout" class="logout">Logout</a>
+  </div>
+
+  <p style="opacity:0.8;">Track your daily meals & stay healthy 💪</p>
+
+  <div class="card">
+    <h2>Add Meal</h2>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+      <input name="name" placeholder="Food name" required>
+      <input name="calories" type="number" placeholder="Calories" required>
+
+      <select name="type">
+        <option>Breakfast</option>
+        <option>Lunch</option>
+        <option>Dinner</option>
+      </select>
+
+      <input type="file" name="image">
+      <button>Add Meal</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Your Meals</h2>
+    <div class="meals">
+      {% for meal in meals %}
+      <div class="meal-card">
+        <h3>{{ meal.name }}</h3>
+        <p>{{ meal.calories }} cal • {{ meal.type }}</p>
+
+        {% if meal.image %}
+          <img src="/uploads/{{ meal.image }}">
+        {% endif %}
+
+        <a href="/delete/{{ meal.id }}" class="delete">Delete</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Calories Overview</h2>
+    <canvas id="chart"></canvas>
+  </div>
+
+</div>
+
+<script src="/static/js/chart.js"></script>
+
+<script>
+  const mealsData = {{ meals | tojson | safe }};
+  renderChart(mealsData);
+</script>
+
+</body>
+</html>
